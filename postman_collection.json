@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "ce0b1c41-6407-46ea-bed7-4470c74891ac",
+		"name": "group29",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "first",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let item_1 = 'Alex'",
+							"// проверяем, что в item_1 значение 'alex' ",
+							"pm.test(\"Item_1 Test\", function () {",
+							"",
+							"    pm.expect(item_1).to.deep.equal('Alex')",
+							"    // pm.expect(tt2.salary).to.eql(1000);",
+							"});",
+							"",
+							"// pm.test(\"Item_2 Person\", function () {",
+							"",
+							"//     pm.expect(+person.age).to.deep.equal(30)",
+							" ",
+							"// });",
+							"",
+							"let person = ",
+							"    {",
+							"    \"age\": \"30\",",
+							"    \"family\": {",
+							"        \"children\": [  [\"Alex\", 24 ],[\"Kate\", 12 ] ],",
+							"        \"u_salary_1_5_year\": 6000",
+							"    },",
+							"    \"name\": \"Alex\",",
+							"    \"salary\": 1500",
+							"}",
+							"",
+							"// или использовать этот код ",
+							"// var person = pm.response.json();",
+							"",
+							"// проверяем, что age = 30",
+							"pm.test(\"Item_2 Person\", function () {",
+							"",
+							"    pm.expect(person.age).to.deep.equal('30')",
+							" ",
+							"});",
+							"",
+							"// проверяем, что в children у 0-го элемента, 1-ый параметр(возраст) =24",
+							"pm.test(\"Item_3 Person\", function () {",
+							"",
+							"    pm.expect(person.family.children[0][1]).to.deep.equal(24)",
+							" ",
+							"});",
+							"// проверяем, на наличие параметра (property)",
+							"pm.test(\"Item_4 Person\", function () {",
+							"",
+							"    pm.expect(person).to.have.property(\"name\")",
+							" ",
+							"});",
+							"// проверяем, на наличие целого элемента",
+							"pm.test(\"Item_5 Person\", function () {",
+							"",
+							"    pm.expect(person).to.deep.include({\"salary\": 1500})",
+							" ",
+							"});",
+							"// проверяем, что в children в 1-м массиве(Kate) есть число 12 ",
+							"pm.test(\"Item_6 Person\", function () {",
+							"",
+							"    pm.expect(person.family.children[1]).to.deep.include(12)",
+							" ",
+							"});",
+							"// проверяем, что в children  1-ый массив(Kate) является массивом(array)",
+							"pm.test(\"Item_7 Person\", function () {",
+							"",
+							"    pm.expect(person.family.children[1]).to.be.a(\"array\")",
+							" ",
+							"});",
+							"// проверяем, что в children в 1-м массиве(Kate) 0-ой элемент являеися строкой(string)",
+							"pm.test(\"Item_7_1 Person\", function () {",
+							"",
+							"    pm.expect(person.family.children[1][0]).to.be.a(\"string\")",
+							" ",
+							"});",
+							"// проверяем, что в children 1-ый массив(Kate) является массивом(array) содержит число 12 ",
+							"pm.test(\"Item_8 Person\", function () {",
+							"",
+							"    pm.expect(person.family.children[1]).to.be.an(\"array\").that.include(12)",
+							" ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "20",
+							"type": "default"
+						},
+						{
+							"key": "salary",
+							"value": "1500",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Alex",
+							"type": "default"
+						},
+						{
+							"key": "auth_token",
+							"value": "/s34lfgbj/Vadim/jjd909/12242kjkWpqc322823r23r3r457271evny",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_test_user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_test_user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
